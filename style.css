@@ -241,7 +241,7 @@ input {
   display: block;
   width: min(100%, 320px);
   height: auto;
-  margin-top: 4px;
+  margin-top: 10px;
 }
 
 .cta-section-secondary {
@@ -351,7 +351,7 @@ input {
 }
 
 .audio-label {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   color: rgba(209, 107, 204, 0.911);
   text-align: center;
   font-family: 'Flowers Kingdom', Arial, sans-serif;
@@ -484,7 +484,7 @@ input {
 }
 
 .video-section h2 {
-  margin: 0 0 16px;
+  margin: 14px 0px 28px;
   color: rgba(46, 136, 255, 0.911);
   transition:all 0.3s ease;
   font-family: "Flowers Kingdom", Arial, sans-serif;
@@ -515,7 +515,7 @@ input {
   display: grid;
   place-items: center;
   min-height: 430px;
-  margin: 0 16px;
+  margin: 10px 16px;
   overflow: hidden;
   isolation: isolate;
   border-radius: 16px;
