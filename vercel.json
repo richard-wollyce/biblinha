@@ -2,5 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/audio/:path*",
+      "destination": "/public/audio/:path*"
+    },
+    {
+      "source": "/compra-segura.png",
+      "destination": "/public/compra-segura.png"
+    }
+  ]
 }
