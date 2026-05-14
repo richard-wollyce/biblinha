@@ -1,0 +1,573 @@
+@font-face {
+  font-family: 'Flowers Kingdom';
+  src: url('/fonts/FlowersKingdom.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-green: #22a55b;
+  --color-green-hover: #1a8a4a;
+  --color-teal: #6bbfbe;
+  --color-red: #e94c3d;
+  --color-player-bg: #f8f8f8;
+  --color-muted: #555555;
+  --shell-width: 430px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(100%, var(--shell-width));
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--color-white);
+}
+
+.promo-bar {
+	overflow: hidden;
+	margin: 0 0 8px;
+	background: #7a1cac;
+	color: #ffffff;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.promo-bar-track {
+	display: flex;
+	gap: 24px;
+	width: max-content;
+	padding: 6px 0;
+	white-space: nowrap;
+	font-family: 'Arial Narrow', Arial, sans-serif;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	animation: promo-marquee 14s linear infinite;
+}
+
+.promo-bar-track span {
+	flex: 0 0 auto;
+}
+
+@keyframes promo-marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-20%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.promo-bar-track {
+		animation: none;
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background: var(--color-white);
+}
+
+.site-header img {
+  width: auto;
+  height: auto;
+  max-height: 100px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 430px;
+  margin: 0 16px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 16px;
+  background: #1f1f1f;
+}
+
+.hero::before,
+.hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+}
+
+.hero::before {
+  background: rgba(0, 0, 0, 0.308);
+}
+
+.hero::after {
+  background: linear-gradient(
+    0deg,
+    rgba(11, 49, 155, 0.068) 0%,
+    rgba(73, 166, 205, 0.16) 34%,
+    rgba(9, 15, 49, 0.055) 62%
+  );
+}
+
+.hero-carousel,
+.hero-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 44px 22px;
+  color: var(--color-white);
+  text-align: center;
+  text-shadow: #ffffff98 0px 2px 10px, #ffffff02 0px 1px 1px, #0000006e 0px 8px 16px;
+}
+
+.hero h1 {
+  margin: 0 0 40px;
+  font-family: 'Flowers Kingdom', Arial, sans-serif;
+  font-size: 2.05rem;
+  font-weight: normal;
+  line-height: 2.4;
+  letter-spacing: 0.20em;
+  text-wrap: balance;
+}
+
+.hero-copy-title {
+  display: grid;
+  gap: 0px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 0px;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 18px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.hero-copy p {
+  margin: 0;
+}
+
+.hero-copy strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+.hero-copy-center {
+  margin: 0;
+}
+
+.hero-copy-small {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2rem;
+}
+
+.hero-copy-center + .hero-copy-small {
+  margin-top: 22px;
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px;
+}
+
+.secure-purchase-image {
+  display: block;
+  width: min(100%, 320px);
+  height: auto;
+  margin-top: 4px;
+}
+
+.cta-section-secondary {
+  padding-top: 16px;
+}
+
+.purchase-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: min(320px, 85vw);
+  min-height: 52px;
+  padding: 14px 40px;
+  border-radius: 9999px;
+  background: rgba(9, 34, 143, 0.8);
+  color: var(--color-white);
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.purchase-button:hover,
+.purchase-button:focus-visible {
+  background: var(--color-green-hover);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.purchase-button:active {
+  transform: translateY(1px);
+}
+
+.instagram-section,
+.audio-section,
+.video-section {
+  padding: 0 16px 24px;
+}
+
+.instagram-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: var(--color-white);
+}
+
+.instagram-profile {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+}
+
+.instagram-avatar {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.instagram-user,
+.instagram-followers {
+  margin: 0;
+}
+
+.instagram-user {
+  color: var(--color-black);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.instagram-followers {
+  margin-top: 3px;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.instagram-link {
+  display: inline-flex;
+  flex: 0 0 44px;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.instagram-link:hover,
+.instagram-link:focus-visible {
+  background: rgba(29, 29, 29, 0.06);
+}
+
+.instagram-link:active {
+  transform: scale(0.97);
+}
+
+.audio-label {
+  margin-bottom: 8px;
+  color: rgba(209, 107, 204, 0.911);
+  text-align: center;
+  font-family: 'Flowers Kingdom', Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 2;
+  padding: 0 16px 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+.audio-player {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 16px 16px;
+  border-radius: 12px;
+  background: var(--color-player-bg);
+}
+
+.audio-toggle {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(9, 34, 143, 0.8);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.audio-toggle:hover,
+.audio-toggle:focus-visible {
+  filter: brightness(0.95);
+}
+
+.audio-toggle:active {
+  transform: scale(0.97);
+}
+
+.audio-icon {
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 17px solid var(--color-white);
+}
+
+.audio-toggle.is-playing .audio-icon {
+  width: 16px;
+  height: 21px;
+  margin-left: 0;
+  border: 0;
+  border-right: 5px solid var(--color-white);
+  border-left: 5px solid var(--color-white);
+}
+
+.audio-track {
+  width: 100%;
+}
+
+.audio-progress {
+  width: 100%;
+  height: 8px;
+  margin: 0;
+  border-radius: 9999px;
+  outline: none;
+  appearance: none;
+  background: linear-gradient(
+    90deg,
+    rgba(9, 34, 143, 0.8) var(--progress-percent, 0%),
+    #dedede var(--progress-percent, 0%)
+  );
+  cursor: pointer;
+}
+
+.audio-progress::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.audio-progress::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  margin-top: -5px;
+  border: 3px solid var(--color-white);
+  border-radius: 50%;
+  appearance: none;
+  background: rgba(9, 34, 143, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.audio-progress::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: #dedede;
+}
+
+.audio-progress::-moz-range-progress {
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(21, 46, 158, 0.8);
+}
+
+.audio-progress::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--color-white);
+  border-radius: 50%;
+  background: rgba(21, 46, 158, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.audio-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.video-section {
+  padding-top: 0;
+}
+
+.video-section h2 {
+  margin: 0 0 16px;
+  color: rgba(46, 136, 255, 0.911);
+  transition:all 0.3s ease;
+  font-family: "Flowers Kingdom", Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.0;
+  padding: 0 16px 10px;
+  text-align: center;
+}
+
+.video-frame {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  background: #f1f1f1;
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.final-carousel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 430px;
+  margin: 0 16px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 16px;
+  background: #1f1f1f;
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--color-white);
+}
+
+.site-footer img {
+  width: auto;
+  height: 70px;
+  object-fit: contain;
+}
+
+.site-footer p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.911);
+  text-align: center;
+  font-size: 0.70rem;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 374px) {
+  .hero {
+    min-height: 408px;
+  }
+
+  .hero-content {
+    padding-inline: 18px;
+  }
+
+  .hero h1 {
+    font-size: 1.40rem;
+  }
+
+  .hero-copy {
+    font-size: 0.80rem;
+  }
+}
+
+@media (min-width: 431px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+}
