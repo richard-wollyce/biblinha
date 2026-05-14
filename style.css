@@ -351,13 +351,12 @@ input {
 }
 
 .audio-label {
-  margin-bottom: 16px;
   color: rgba(209, 107, 204, 0.911);
   text-align: center;
   font-family: 'Flowers Kingdom', Arial, sans-serif;
   font-size: 1.1rem;
   line-height: 2;
-  padding: 0 16px 10px;
+  padding: 4px 16px 4px;
   letter-spacing: 0.20em;
   text-transform: uppercase;
 }
@@ -367,7 +366,7 @@ input {
   justify-items: center;
   gap: 16px;
   width: 100%;
-  padding: 18px 16px 16px;
+  padding: 16px 16px 16px;
   border-radius: 12px;
   background: var(--color-player-bg);
 }
@@ -484,7 +483,7 @@ input {
 }
 
 .video-section h2 {
-  margin: 14px 0px 28px;
+  margin: 14px 0px 14px;
   color: rgba(46, 136, 255, 0.911);
   transition:all 0.3s ease;
   font-family: "Flowers Kingdom", Arial, sans-serif;
